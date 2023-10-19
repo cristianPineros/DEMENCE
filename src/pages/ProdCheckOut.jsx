@@ -62,7 +62,7 @@ const ProdCheckOut = () => {
       {/* ABOUT */}
       <div className="flex flex-col gap-4 lg:w-2/4">
         <div>
-          <span className=" text-violet-600 font-semibold">
+          <span className=" text-[#9BC444] font-semibold">
             {object[id].subDescription}
           </span>
           <h1 className="text-3xl font-bold">{object[id].title}</h1>
@@ -87,7 +87,7 @@ const ProdCheckOut = () => {
           </div>
           <button
             onClick={() => cart.addOneToCart(object[id].id)}
-            className="bg-violet-800 text-white font-semibold py-3 px-16 rounded-xl h-full"
+            className="bg-[#9BC444] text-white font-semibold py-3 px-16 rounded-xl h-full"
           >
             Add to Cart
           </button>

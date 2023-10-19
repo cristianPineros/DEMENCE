@@ -17,13 +17,13 @@ export const navLinks = [
 export const cardsInfo = [
     {
       id: 0,
-      title : "gdrhgnehnbgishnblise",
-      price : "",
+      title : "Diego",
+      price : "1000",
       photo: "https://i.ebayimg.com/images/g/MQUAAOSwsl5kgC9H/s-l1200.jpg"
     },
     {
       id: 1,
-      title : "hrdhdr",
+      title : "Cristian",
       price : "",
       photo: "https://i.ebayimg.com/images/g/MQUAAOSwsl5kgC9H/s-l1200.jpg"
     },

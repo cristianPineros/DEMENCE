@@ -23,7 +23,7 @@ function Card(props) {
             />
           </div>
           <div className="bottom flex flex-col justify-center items-start p-3 bg-">
-            <div onClick={()=>navigate(`/prod/${props.id}`)} className= "title font-semibold text-xs my-1 " >
+            <div onClick={()=>navigate(`/prod/${props.id}`)} className= "title font-semibold text-xs my-1 cursor-pointer" >
             {props.title}
             </div>
             <div className="pricing flex items-center">
