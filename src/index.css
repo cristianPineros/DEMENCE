@@ -18,6 +18,21 @@
   scroll-behavior: smooth;
 }
 
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
 .ani{
   animation: grow 1s ease-in-out;
 }

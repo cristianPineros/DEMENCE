@@ -11,15 +11,15 @@ const ShoppingCart = () => {
   const [amount, setAmount] = useState(1);
 
   return (
-    <div className="w-screen h-screen flex absolute z-10">
+    <div className="w-screen h-screen flex absolute z-10 ">
       <div className="bg-opacity-30 backdrop-blur-sm bg-white flex-1"></div>
-      <div className="w-full md:w-[400px] bg-white ani">
-        <div className=" block box-border w-auto mx-10 my-10 h-full overflow-hidden">
+      <div className="w-full md:w-[400px] bg-white  ani">
+        <div className="block box-border w-auto mx-10 my-10 h-4/6 overflow-y-auto hide-scrollbar">
           {items.map((card) => {
             const id = card.id;
             return (
-              <div class="grid grid-rows-2 grid-flow-col gap-4">
-                <div class="row-span-2 ...">
+              <div className="grid grid-rows-2 grid-flow-col gap-4">
+                <div className="row-span-2 ...">
                   {" "}
                   <img
                     src={object[id].picture1}
@@ -27,10 +27,10 @@ const ShoppingCart = () => {
                     className="my-3 w-40 h-auto rounded-md cursor-pointer"
                   />
                 </div>
-                <div class="col-span-1 ...">
+                <div className="col-span-1 ...">
                   <p className="mx-5 my-5  font-bold">{object[id].title}</p>
                   <h6 className="mx-5 my-5 font-semibold">
-                    {object[id].price}
+                    {card.size} - {object[id].price}
                   </h6>
                 </div>
                 <div class="row-span-1 col-span-2 ...">
@@ -51,6 +51,25 @@ const ShoppingCart = () => {
               </div>
             );
           })}
+        </div>
+        <div className="p-5 w-full bg-white border-t-2 border-primary">
+          <div className="flex w-full">
+            <div className="w-1/2">
+              <h4 className="text-start">TOTAL</h4>
+            </div>
+            <div className="w-1/2">
+              <h4 className="text-end font-bold">
+                <span>$1,405,000 COP</span>
+              </h4>
+            </div>
+          </div>
+          <div className="text-center my-12" >
+            <button
+              className=" mb-7 w-full rounded-lg border"
+            >
+              <span>Proceed To Checkout</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

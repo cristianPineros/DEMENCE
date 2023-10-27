@@ -12,8 +12,9 @@ import CartProvider from "./service/CartContext";
 function App() {
   return (
     <CartProvider>
-      <div className="relative overflow-hidden">
-        <>  
+      <div className="relative ">
+        <> 
+          <ShoppingCart />
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
