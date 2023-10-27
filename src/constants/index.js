@@ -29,7 +29,7 @@ export const cardsInfo = [
     },
     {
       id: 2,
-      title : "",
+      title : "Santi",
       price : "",
       photo: "https://i.ebayimg.com/images/g/MQUAAOSwsl5kgC9H/s-l1200.jpg"
     },
@@ -66,7 +66,7 @@ export const cardsInfo = [
 
   export const prodInfo = [
     {
-      id: "p0",
+      id: 0,
       title : "Nike Invincible 3",
       price : "$ 199.00",
       description : "Con un'ammortizzazione incredibile per sostenerti in tutti i tuoi chilometri, Invincible 3 offre un livello di comfort elevatissimo sotto il piede per aiutarti a dare il massimo oggi, domani e oltre. Questo modello incredibilmente elastico e sostenitivo, è pensato per dare il massimo lungo il tuo percorso preferito e fare ritorno a casa carico di energia, in attesa della prossima corsa.",
@@ -77,9 +77,9 @@ export const cardsInfo = [
       picture4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png"
     },
     {
-      id: "p1",
-      title : "njgiesgiosjeog",
-      price : "$200000",
+      id: 1,
+      title : "Nike Invincible 2",
+      price : "$ 199.00",
       description : "",
       subDescription: "",
       picture1: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/3396ee3c-08cc-4ada-baa9-655af12e3120/scarpa-da-running-su-strada-invincible-3-xk5gLh.png",
@@ -88,7 +88,7 @@ export const cardsInfo = [
       picture4: "https://static.nike.com/a/images/f_auto,b_rgb:f5f5f5,w_440/d3eb254d-0901-4158-956a-4610180545e5/scarpa-da-running-su-strada-invincible-3-xk5gLh.png"
     },
     {
-      id: "p2",
+      id: 2,
       title : "",
       price : "",
       description : "",
@@ -99,7 +99,7 @@ export const cardsInfo = [
       picture4: ""
     },
     {
-      id: "p3",
+      id: 3,
       title : "",
       price : "",
       description : "",
@@ -110,7 +110,7 @@ export const cardsInfo = [
       picture4: ""
     },
     {
-      id: "p4",
+      id: 4,
       title : "",
       price : "",
       description : "",
@@ -121,7 +121,7 @@ export const cardsInfo = [
       picture4: ""
     },
     {
-      id: "p5",
+      id: 5,
       title : "",
       price : "",
       description : "",

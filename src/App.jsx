@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import ProdCheckOut from "./pages/ProdCheckOut";
-import { Navbar } from "./components";
+import { Navbar, ShoppingCart } from "./components";
 
 import CartProvider from "./service/CartContext";
 
