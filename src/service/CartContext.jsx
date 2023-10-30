@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getProductInfo } from "../constants";
+import { prodInfo } from "../constants";
 
 export const CartContext = createContext({
   items: [],
@@ -8,6 +8,8 @@ export const CartContext = createContext({
   removeOneFromCart: () => {},
   deleteFromCart: () => {},
   getTotalCost: () => {},
+  increaseQuantity: () => {},
+  decreaseQuantity: () => {},
 });
 
 export function CartProvider({ children }) {
@@ -25,7 +27,7 @@ export function CartProvider({ children }) {
     return quantity;
   }
 
-  function addOneToCart(id,size) {
+  function addOneToCart(id, size) {
     const quantity = getProductQuantity(id, size);
 
     if (quantity === 0) {
@@ -34,7 +36,7 @@ export function CartProvider({ children }) {
         {
           id: id,
           quantity: 1,
-          size: size
+          size: size,
         },
       ]);
     } else {
@@ -64,21 +66,70 @@ export function CartProvider({ children }) {
     }
   }
 
-  function deleteFromCart(id) {
+  function deleteFromCart(id, size) {
     setCartProducts((cartProducts) =>
       cartProducts.filter((currentProduct) => {
-        return currentProduct.id != id;
+        return currentProduct.id != id || currentProduct.size != size;
       })
     );
+  }
+
+  function getProductInfo(id) {
+    let productData = prodInfo.find((product) => product.id === id);
+
+    if (productData == undefined) {
+      console.log("Product data does not exist for ID: " + id);
+      return undefined;
+    }
+
+    return productData;
   }
 
   function getTotalCost() {
     let totalCost = 0;
     cartProducts.map((cartItem) => {
       const productData = getProductInfo(cartItem.id);
-      totalCost += productData.price * cartItem.quantity;
+      totalCost += productData.priceint * cartItem.quantity;
     });
     return totalCost;
+  }
+
+  function increaseQuantity(id, size) {
+    const product = cartProducts.find(
+      (product) => product.id === id && product.size === size
+    );
+    if (product == undefined) {
+      console.log("Product not found");
+      return undefined;
+    }
+    setCartProducts(
+      cartProducts.map((product) =>
+        product.id === id && product.size === size
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  }
+
+  function decreaseQuantity(id, size) {
+    const product = cartProducts.find(
+      (product) => product.id === id && product.size === size
+    );
+    if (product == undefined) {
+      console.log("Product not found");
+      return undefined;
+    }
+    if (product.quantity > 1) {
+      setCartProducts(
+        cartProducts.map((product) =>
+          product.id === id && product.size === size
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
+      );
+    } else {
+      deleteFromCart(id, size);
+    }
   }
 
   const contextValue = {
@@ -88,6 +139,8 @@ export function CartProvider({ children }) {
     removeOneFromCart,
     deleteFromCart,
     getTotalCost,
+    increaseQuantity,
+    decreaseQuantity,
   };
 
   return (

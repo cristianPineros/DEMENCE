@@ -11,7 +11,6 @@ const ProdCheckOut = () => {
   const object = prodInfo;
   const cart = useContext(CartContext);
   const productQuantity = cart.getProductQuantity(object[id].id);
-  
 
   const [images, setImages] = useState({
     img1: object[id].picture1,
@@ -20,14 +19,10 @@ const ProdCheckOut = () => {
     img4: object[id].picture4,
   });
 
-  const [selectedSize, setSelectedSize] = useState(''); // State to store the selected size
+  const [selectedSize, setSelectedSize] = useState(""); // State to store the selected size
 
   console.log(cart.items);
-  const sizeOptions = [
-    'S',
-    'M',
-    'L',
-  ];
+  const sizeOptions = ["S", "M", "L"];
 
   const handleSizeChange = (event) => {
     setSelectedSize(event.target.value);
@@ -83,7 +78,7 @@ const ProdCheckOut = () => {
         <p className="text-gray-700">{object[id].description}</p>
         <h6 className="text-2xl font-semibold">{object[id].price}</h6>
         <div className="flex flex-row items-center gap-12">
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center gap-10">
             <button
               className="bg-gray-200 py-2 px-5 rounded-lg text-[#9BC444] text-3xl"
               onClick={() => setAmount((prev) => prev - 1)}
@@ -99,26 +94,26 @@ const ProdCheckOut = () => {
             </button>
           </div>
           <div className="w-64">
-      <select
-        value={selectedSize}
-        onChange={handleSizeChange}
-        className="block w-full mt-1 p-2 border rounded-md bg-white text-gray-700"
-      >
-        <option value="">Select a size</option>
-        {sizeOptions.map((size) => (
-          <option key={size} value={size}>
-            {size}
-          </option>
-        ))}
-      </select>
-      </div>
-          <button
+            <select
+              value={selectedSize}
+              onChange={handleSizeChange}
+              className="block w-full mt-1 p-2 border rounded-md bg-white text-gray-700"
+            >
+              <option value="">Select a size</option>
+              {sizeOptions.map((size) => (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <button
             onClick={() => cart.addOneToCart(object[id].id, selectedSize)}
             className="bg-[#9BC444] text-white font-semibold py-3 px-16 rounded-xl h-full"
           >
             Add to Cart
           </button>
-        </div>
       </div>
     </div>
   );
