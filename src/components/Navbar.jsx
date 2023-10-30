@@ -5,7 +5,7 @@ import { navLinks } from "../constants";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({openShoppingCart}) => {
   const { loginWithRedirect } = useAuth0();
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
@@ -26,6 +26,10 @@ const Navbar = () => {
     } else if (title == "Home") {
       navigate("/");
     }
+  
+  
+  
+  
   };
 
   return (
@@ -50,7 +54,7 @@ const Navbar = () => {
                 </div>
               </li>
             ))}
-            <img src={cart} className="mx-9 cursor-pointer w-[28px] h-[28px]" />
+            <img src={cart} className="mx-9 cursor-pointer w-[28px] h-[28px]" onClick={openShoppingCart} />
           </ul>
 
           <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -78,7 +82,7 @@ const Navbar = () => {
                     {nav.title}
                   </li>
                 ))}
-                <img src={cart} className="w-[28px] h-[28px] my-5 mx-2" />
+                <img src={cart} className="w-[28px] h-[28px] my-5 mx-2" onClick={openShoppingCart} />
               </ul>
             </div>
           </div>

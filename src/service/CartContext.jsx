@@ -10,6 +10,7 @@ export const CartContext = createContext({
   getTotalCost: () => {},
   increaseQuantity: () => {},
   decreaseQuantity: () => {},
+  addMultipleToCart: () => {}
 });
 
 export function CartProvider({ children }) {
@@ -44,6 +45,29 @@ export function CartProvider({ children }) {
         cartProducts.map((product) =>
           product.id === id && product.size === size
             ? { ...product, quantity: product.quantity + 1 }
+            : product
+        )
+      );
+    }
+  }
+
+  function addMultipleToCart(id, size, prodQuantity) {
+    const quantity = getProductQuantity(id, size);
+
+    if (quantity === 0) {
+      setCartProducts([
+        ...cartProducts,
+        {
+          id: id,
+          quantity: prodQuantity,
+          size: size,
+        },
+      ]);
+    } else {
+      setCartProducts(
+        cartProducts.map((product) =>
+          product.id === id && product.size === size
+            ? { ...product, quantity: product.quantity + prodQuantity }
             : product
         )
       );
@@ -141,6 +165,7 @@ export function CartProvider({ children }) {
     getTotalCost,
     increaseQuantity,
     decreaseQuantity,
+    addMultipleToCart
   };
 
   return (

@@ -2,17 +2,16 @@ import React from "react";
 import { CartContext } from "../service/CartContext";
 import { useContext } from "react";
 import { prodInfo } from "../constants";
-import { useState } from "react";
 
-const ShoppingCart = () => {
+
+const ShoppingCart = ({closeShoppingCart}) => {
   const cart = useContext(CartContext);
   const object = prodInfo;
   const items = cart.items;
 
-
   return (
-    <div className="w-screen h-screen flex absolute z-10 ">
-      <div className="bg-opacity-30 backdrop-blur-sm bg-white flex-1"></div>
+    <div className="w-screen h-screen flex absolute z-10 over">
+      <div className="bg-opacity-30 backdrop-blur-sm bg-white flex-1" onClick={closeShoppingCart}></div>
       <div className="w-full md:w-[400px] bg-white  ani">
         <div className="block box-border w-10/12 mx-10 my-10 h-4/6 overflow-y-auto hide-scrollbar">
           {items.map((card) => {
@@ -80,7 +79,7 @@ const ShoppingCart = () => {
             </div>
           </div>
           <div className="text-center my-12">
-            <button className="w-full border border-[#9BC444]">
+            <button className="w-full border border-[#9BC444] text-lg font-bold">
               <span>Proceed To Checkout</span>
             </button>
           </div>

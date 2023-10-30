@@ -5,7 +5,7 @@ import { CartContext } from "../service/CartContext";
 import { useContext } from "react";
 import { prodInfo } from "../constants";
 
-const ProdCheckOut = () => {
+const ProdCheckOut = ({ openShoppingCart }) => {
   const { id } = useParams();
 
   const object = prodInfo;
@@ -33,7 +33,7 @@ const ProdCheckOut = () => {
   const [amount, setAmount] = useState(1);
 
   return (
-    <div className="ProdCheckOut flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
+    <div className="ProdCheckOut flex flex-col justify-between lg:flex-row gap-16 lg:items-center ">
       <div className="flex flex-col gap-6 lg:w-2/4">
         <img
           src={activeImg}
@@ -109,11 +109,14 @@ const ProdCheckOut = () => {
           </div>
         </div>
         <button
-            onClick={() => cart.addOneToCart(object[id].id, selectedSize)}
-            className="bg-[#9BC444] text-white font-semibold py-3 px-16 rounded-xl h-full"
-          >
-            Add to Cart
-          </button>
+          onClick={() => {
+            cart.addMultipleToCart(object[id].id, selectedSize, amount);
+            openShoppingCart();
+          }}
+          className="bg-[#9BC444] text-white font-semibold py-3 px-16 rounded-xl h-full"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );

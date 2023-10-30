@@ -17,9 +17,11 @@ function Card(props) {
         <div className="card bg-white w-96 m-2 rounded-lg shadow-lg">
           <div className="top">
             <img
-              className=" object-cover  p-2"
+              onClick={()=>navigate(`/prod/${props.id}`)}
+              className=" object-cover  cursor-pointer p-2"
               src={props.photo}
               alt="img"
+              
             />
           </div>
           <div className="bottom flex flex-col justify-center items-start p-3 bg-">
