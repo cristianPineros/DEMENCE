@@ -6,10 +6,6 @@ export const navLinks = [
     {
       id: "new",
       title: "New Collection",
-    },
-    {
-      id: "log",
-      title: "Log in",
     }
   ];
 
@@ -17,19 +13,19 @@ export const navLinks = [
 export const cardsInfo = [
     {
       id: 0,
-      title : "Diego",
+      title : "ZW COLLECTION TAILORED BLAZER",
       price : "1000",
       photo: "https://i.ebayimg.com/images/g/MQUAAOSwsl5kgC9H/s-l1200.jpg"
     },
     {
       id: 1,
-      title : "Cristian",
+      title : "ZW COLLECTION TAILORED BLAZER",
       price : "",
       photo: "https://i.ebayimg.com/images/g/MQUAAOSwsl5kgC9H/s-l1200.jpg"
     },
     {
       id: 2,
-      title : "Santi",
+      title : "ZW COLLECTION TAILORED BLAZER",
       price : "",
       photo: "https://i.ebayimg.com/images/g/MQUAAOSwsl5kgC9H/s-l1200.jpg"
     },
@@ -56,7 +52,7 @@ export const cardsInfo = [
   export const prodInfo = [
     {
       id: 0,
-      title : "Nike Invincible 3",
+      title : "ZW COLLECTION TAILORED BLAZER",
       price : "$ 199.00",
       priceint : 199,
       description : "Con un'ammortizzazione incredibile per sostenerti in tutti i tuoi chilometri, Invincible 3 offre un livello di comfort elevatissimo sotto il piede per aiutarti a dare il massimo oggi, domani e oltre. Questo modello incredibilmente elastico e sostenitivo, è pensato per dare il massimo lungo il tuo percorso preferito e fare ritorno a casa carico di energia, in attesa della prossima corsa.",

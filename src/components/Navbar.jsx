@@ -5,12 +5,28 @@ import { navLinks } from "../constants";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({openShoppingCart}) => {
+const Navbar = ({ openShoppingCart }) => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    loginWithRedirect({
+      appState: {
+        returnTo: "/",
+      },
+      authorizationParams: {
+        prompt: "login",
+      },
+    });
+  };
+  const handleLogOut = async () => {
+    logout({ logoutParams: { returnTo: window.location.origin } });
+  };
 
   const handleClick = async (title) => {
     if (title == "Log in") {
@@ -24,19 +40,15 @@ const Navbar = ({openShoppingCart}) => {
       });
       setActive(title);
     } else if (title == "Home") {
-      navigate("/");
+      navigate("/#test");
     }
-  
-  
-  
-  
   };
 
   return (
     <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <nav className="w-full flex py-2.5 justify-between items-center navbar">
-          <img src={logos} alt="hoobank" className="w-[100px] h-[70px]" />
+          <img src={logos} alt="hoobank" className=" w-[100px] h-[70px]" />
           <ul className="list-none sm:flex hidden justify-end items-center flex-1">
             {navLinks.map((nav, index) => (
               <li
@@ -54,7 +66,42 @@ const Navbar = ({openShoppingCart}) => {
                 </div>
               </li>
             ))}
-            <img src={cart} className="mx-9 cursor-pointer w-[28px] h-[28px]" onClick={openShoppingCart} />
+
+            {!isAuthenticated && (
+              <div
+                className={`mx-9 font-poppins font-medium cursor-pointer text-[16px] text-dimWhite`}
+                onClick={() => {
+                  handleLogin();
+                }}
+              >
+                Log In
+              </div>
+            )}
+
+            {isAuthenticated && (
+              <div
+                className={`mx-9 font-poppins font-medium cursor-pointer text-[16px] text-dimWhite`}
+                onClick={() => {
+                  handleLogOut();
+                }}
+              >
+                Log Out
+              </div>
+            )}
+
+            {isAuthenticated && (
+              <div
+                className={`font-poppins font-medium cursor-pointer text-[16px] text-dimWhite`}
+              >
+                Profile
+              </div>
+            )}
+
+            <img
+              src={cart}
+              className="mx-9 cursor-pointer w-[28px] h-[28px]"
+              onClick={openShoppingCart}
+            />
           </ul>
 
           <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -74,7 +121,7 @@ const Navbar = ({openShoppingCart}) => {
                 {navLinks.map((nav, index) => (
                   <li
                     key={nav.id}
-                    className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                    className={`font-poppins font-medium cursor-pointer text-[12px] ${
                       active === nav.title ? "text-white" : "text-dimWhite"
                     } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
                     onClick={() => handleClick(nav.title)}
@@ -82,7 +129,40 @@ const Navbar = ({openShoppingCart}) => {
                     {nav.title}
                   </li>
                 ))}
-                <img src={cart} className="w-[28px] h-[28px] my-5 mx-2" onClick={openShoppingCart} />
+                {!isAuthenticated && (
+                  <div
+                    className={`my-5 font-poppins font-medium cursor-pointer text-[12px] text-dimWhite`}
+                    onClick={() => {
+                      handleLogin();
+                    }}
+                  >
+                    Log In
+                  </div>
+                )}
+
+                {isAuthenticated && (
+                  <div
+                    className={`my-5 font-poppins font-medium cursor-pointer text-[12px] text-dimWhite`}
+                    onClick={() => {
+                      handleLogOut();
+                    }}
+                  >
+                    Log Out
+                  </div>
+                )}
+
+                {isAuthenticated && (
+                  <div
+                    className={`font-poppins font-medium cursor-pointer text-[12px] text-dimWhite`}
+                  >
+                    Profile
+                  </div>
+                )}
+                <img
+                  src={cart}
+                  className="w-[28px] h-[28px] my-5 mx-2"
+                  onClick={openShoppingCart}
+                />
               </ul>
             </div>
           </div>
