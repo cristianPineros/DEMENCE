@@ -1,22 +1,28 @@
 import Card from "./Card";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { cardsInfo } from "../constants";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 function Carousel() {
   const scrollLeft = () => {
-    document.getElementById("content").scrollLeft -= 1000;
+    document.getElementById("content").scrollLeft -= isMobile ? 150 : 1000;
   };
   const scrollRight = () => {
-    document.getElementById("content").scrollLeft += 1000;
+    document.getElementById("content").scrollLeft += isMobile ? 150 : 1000;
   };
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  useEffect(
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
-    () => {
-      console.log(cardsInfo)
-    }, []
-  )
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className="relative">
@@ -35,7 +41,7 @@ function Carousel() {
         {cardsInfo.map((card) => {
           return (
             <div>
-              <Card {...card}/>
+              <Card {...card} />
             </div>
           );
         })}

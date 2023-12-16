@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../style";
 import { close, logos, menu, cart } from "../assets";
 import { navLinks } from "../constants";
@@ -11,9 +11,34 @@ const Navbar = ({ openShoppingCart }) => {
   const { logout } = useAuth0();
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
-
   const navigate = useNavigate();
 
+  /*
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+
+
+
+  const handleScroll = () => {
+    // find current scroll position
+    const currentScrollPos = window.scrollY;
+
+    // set state based on location info (explained in more detail below)
+    setVisible((prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) || currentScrollPos < 10);
+
+    // set state to new scroll position
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  // new useEffect:
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+
+  }, [prevScrollPos, visible, handleScroll]);
+*/
   const handleLogin = async () => {
     loginWithRedirect({
       appState: {
@@ -40,7 +65,7 @@ const Navbar = ({ openShoppingCart }) => {
       });
       setActive(title);
     } else if (title == "Home") {
-      navigate("/#test");
+      navigate(`/home/test`);
     }
   };
 

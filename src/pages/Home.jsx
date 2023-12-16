@@ -8,9 +8,10 @@ const Home = () => (
       <Video />
     </div>
 
-    <div className={`bg-white w-screen h-screen ${styles.paddingX} ${styles.flexCenter}`}
+    <div
+      className={`bg-white flex w-screen h-screen ${styles.paddingX} ${styles.flexCenter}`}
     >
-      <div  className={`${styles.boxWidth}`}>
+      <div className={`${styles.boxWidth}`}>
         <Carousel />
       </div>
     </div>
