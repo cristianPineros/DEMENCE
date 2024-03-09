@@ -16,7 +16,6 @@ function App() {
 
   return (
     <CartProvider>
-      <div className="relative">
         <> 
           {
             showShoppingCart && <ShoppingCart closeShoppingCart = {closeShoppingCart}/>
@@ -28,7 +27,7 @@ function App() {
             <Route path="/a" element={<PaymentCard />} />
           </Routes>
         </>
-      </div>
+
     </CartProvider>
   );
 }

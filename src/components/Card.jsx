@@ -5,7 +5,7 @@ function Card(props) {
   const navigate = useNavigate();
   return (
     <>
-      <div className="card bg-white w-96 m-2 rounded-lg shadow-lg">
+      <div className=" bg-white w-96 m-2 rounded-lg shadow-lg">
         <div className="top">
           <img
             onClick={() => navigate(`/prod/${props.id}`)}

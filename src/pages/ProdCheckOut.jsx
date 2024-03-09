@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { CartContext } from "../service/CartContext";
 import { useContext } from "react";
 import { prodInfo } from "../constants";

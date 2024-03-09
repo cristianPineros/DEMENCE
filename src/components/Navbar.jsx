@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../style";
+import {styles,layout} from "../style";
 import { close, logos, menu, cart } from "../assets";
 import { navLinks } from "../constants";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -140,13 +140,13 @@ const Navbar = ({ openShoppingCart }) => {
             <div
               className={`${
                 !toggle ? "hidden" : "flex"
-              } p-6 bg-black-gradient  top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+              } p-6 bg-black-gradient  top-20 right-0 mx-4 my-2 min-w-[300px] rounded-xl sidebar`}
             >
               <ul className="list-none flex justify-end items-start flex-1 flex-col">
                 {navLinks.map((nav, index) => (
                   <li
                     key={nav.id}
-                    className={`font-poppins font-medium cursor-pointer text-[12px] ${
+                    className={`font-poppins font-medium cursor-pointer text-[16px] ${
                       active === nav.title ? "text-white" : "text-dimWhite"
                     } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
                     onClick={() => handleClick(nav.title)}
@@ -156,7 +156,7 @@ const Navbar = ({ openShoppingCart }) => {
                 ))}
                 {!isAuthenticated && (
                   <div
-                    className={`my-5 font-poppins font-medium cursor-pointer text-[12px] text-dimWhite`}
+                    className={`my-5 font-poppins font-medium cursor-pointer text-[16px] text-dimWhite`}
                     onClick={() => {
                       handleLogin();
                     }}
@@ -167,7 +167,7 @@ const Navbar = ({ openShoppingCart }) => {
 
                 {isAuthenticated && (
                   <div
-                    className={`my-5 font-poppins font-medium cursor-pointer text-[12px] text-dimWhite`}
+                    className={`my-5 font-poppins font-medium cursor-pointer text-[16px] text-dimWhite`}
                     onClick={() => {
                       handleLogOut();
                     }}
@@ -178,7 +178,7 @@ const Navbar = ({ openShoppingCart }) => {
 
                 {isAuthenticated && (
                   <div
-                    className={`font-poppins font-medium cursor-pointer text-[12px] text-dimWhite`}
+                    className={`font-poppins font-medium cursor-pointer text-[16px] text-dimWhite`}
                   >
                     Profile
                   </div>
