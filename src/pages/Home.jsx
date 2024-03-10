@@ -43,7 +43,7 @@ const Home = () => {
         <Video />
       </div>
 
-      <div ref={ref} className="relative w-screen h-screen ">
+      <div ref={ref} className="relative w-screen">
         {isDesktopOrLaptop && (
           <div
             className={`${styles.boxWidth} ${styles.paddingY} ${styles.paddingX}`}
@@ -79,11 +79,13 @@ const Home = () => {
           </div>
         )}
         {isTabletOrMobile && (
-          <div id="test"className={`flex-col flex items-center`}>
+          <div className='flex-col flex items-center'>
             {cardsInfo.map((card) => {
               return <Card {...card} />;
             })}
+            <div className='w-5 h-20 bg-black'></div>
           </div>
+         
         )}
       </div>
     </div>

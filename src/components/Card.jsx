@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 function Card(props) {
   const navigate = useNavigate();
   return (
-    <>
       <div className=" bg-white w-96 m-2 rounded-lg shadow-lg">
         <div className="top">
           <img
@@ -27,7 +26,6 @@ function Card(props) {
           </div>
         </div>
       </div>
-    </>
   );
 }
 export default Card;

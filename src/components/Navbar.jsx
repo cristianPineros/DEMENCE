@@ -65,8 +65,12 @@ const Navbar = ({ openShoppingCart }) => {
       });
       setActive(title);
     } else if (title == "Home") {
-      navigate(`/home/test`);
+      navigate(`/`);
     }
+   else if (title == "New Collection") {
+    navigate(`/newcollection`);
+  }
+    
   };
 
   return (
@@ -117,8 +121,11 @@ const Navbar = ({ openShoppingCart }) => {
             {isAuthenticated && (
               <div
                 className={`font-poppins font-medium cursor-pointer text-[16px] text-dimWhite`}
+                onClick={()=>{
+                  navigate('/purchases')
+                }}
               >
-                Profile
+                Purchases
               </div>
             )}
 

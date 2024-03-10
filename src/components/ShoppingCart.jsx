@@ -2,7 +2,6 @@ import React from "react";
 import { CartContext } from "../service/CartContext";
 import { useContext } from "react";
 import { prodInfo } from "../constants";
-import {styles,layout} from "../style";
 import { PaymentCard } from ".";
 
 const ShoppingCart = ({ closeShoppingCart }) => {
